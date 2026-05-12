@@ -37,12 +37,12 @@ export async function POST(req: Request) {
     try {
       const data = JSON.parse(cleanedText);
       return NextResponse.json({ data });
-    } catch (parseError) {
+    } catch {
       console.error("Parse Error:", text);
       return NextResponse.json({ error: "Failed to parse AI response" }, { status: 500 });
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("AI Generation Error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Unknown error" }, { status: 500 });
   }
 }

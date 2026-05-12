@@ -1,6 +1,7 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import * as allFakers from "@faker-js/faker";
 import {
   Plus,
@@ -19,7 +20,6 @@ import {
   ChevronDown,
   Search,
   Check,
-  Languages,
   Globe
 } from "lucide-react";
 import { useForm, useFieldArray } from "react-hook-form";
@@ -113,7 +113,7 @@ const HINDI_DATA: any = {
   person: {
     firstName: ["प्रिया", "आदित्य", "अंजलि", "राहुल", "नेहा", "समीर", "पूजा", "अमित", "दीपा", "विक्रम"],
     lastName: ["पाटिल", "शर्मा", "वर्मा", "गुप्ता", "मल्होत्रा", "जोशी", "कुलकर्णी", "देशमुख", "सिंह", "मिश्र"],
-    fullName: (faker: any) => {
+    fullName: () => {
       const first = HINDI_DATA.person.firstName[Math.floor(Math.random() * HINDI_DATA.person.firstName.length)];
       const last = HINDI_DATA.person.lastName[Math.floor(Math.random() * HINDI_DATA.person.lastName.length)];
       return `${first} ${last}`;
@@ -375,6 +375,7 @@ export default function Home() {
       setPreviewData(data);
     };
     updatePreview();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watchedColumns, watchedLocale, useAi]);
 
   const onSubmit = async (values: FormValues) => {
