@@ -598,7 +598,7 @@ export default function Home() {
               ) : (
                 useAi ? <Sparkles className="w-5 h-5" /> : <Download className="w-5 h-5" />
               )}
-              {isGenerating ? "Processing..." : useAi ? "Generate with Gemini" : "Generate & Download"}
+              {isGenerating ? "Processing..." : useAi ? "Generate with AI" : "Generate & Download"}
             </button>
           </form>
         </div>
