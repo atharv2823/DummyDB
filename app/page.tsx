@@ -455,7 +455,7 @@ export default function Home() {
           DummyDB
         </h1>
         <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl">
-          Generate hyper-realistic dummy data using Faker.js or the power of Gemini 1.5 Flash.
+          Generate hyper-realistic dummy data using DummyDB or the power of AI.
         </p>
       </header>
 
